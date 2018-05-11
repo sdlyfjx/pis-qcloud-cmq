@@ -1,0 +1,19 @@
+{
+  "name": "pis-qcloud-cmq",
+  "version": "1.0.0",
+  "description": "qcloud cmq sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pis",
+    "cmq"
+  ],
+  "author": "rayl",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "qcloudapi-sdk": "^0.1.6"
+  }
+}
