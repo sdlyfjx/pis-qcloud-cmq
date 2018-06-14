@@ -62,24 +62,44 @@ class CMQ {
     }
 
     this.cmq_client.request({
-        Action: 'CreateQueue',
-        queueName: queueName,
-        maxMsgHeapNum: maxMsgHeapNum,
-        pollingWaitSeconds: pollingWaitSeconds,
-        visibilityTimeout: visibilityTimeout,
-        maxMsgSize: maxMsgSize,
-        msgRetentionSeconds: msgRetentionSeconds
+      Action: 'GetQueueAttributes',
+      queueName: queueName
     }, function(error, data) {
-        if(error) {
-          return next(error)
-        }
+      if (error) {
+        return next(error, data)
+      }
 
-        // 4460为重复名称错误
-        if (data && data.code && data.code !== 4460) {
-          return next(data)
-        }
-
+      if (data && data.code === 0) {
         return next(null, data)
+      }
+
+      if (data && data.code === 4440) {
+        this.cmq_client.request({
+          Action: 'CreateQueue',
+          queueName: queueName,
+          maxMsgHeapNum: maxMsgHeapNum,
+          pollingWaitSeconds: pollingWaitSeconds,
+          visibilityTimeout: visibilityTimeout,
+          maxMsgSize: maxMsgSize,
+          msgRetentionSeconds: msgRetentionSeconds
+        }, function(error, data) {
+          if(error) {
+            return next(error)
+          }
+
+          // 4460为重复名称错误
+          if (data && (
+            data.code == 4460 
+            || (data.code == 4000 && data.message && data.message.indexOf('4460') >= 0))
+          ) {
+            return next(null, data)
+          }
+
+          return next(data)
+        })
+      }
+
+      return next(data)
     })
   }
 
