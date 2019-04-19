@@ -1,11 +1,11 @@
-const CMQ = require('../index')
+const CMQ = require('../index').CMQQ
 
 const QCLOUD_SECRET_ID = 'QCLOUD_SECRET_ID'
 const QCLOUD_SECRET_KEY = 'QCLOUD_SECRET_KEY'
-const cmq_domain = 'https://cmq-queue-gz.api.qcloud.com'
+const region = 'bj'
 const queue_name = 'queue_name'
 
-const cmqApi = new CMQ(QCLOUD_SECRET_ID, QCLOUD_SECRET_KEY, cmq_domain)
+const cmqApi = new CMQ(QCLOUD_SECRET_ID, QCLOUD_SECRET_KEY, region)
 
 describe('腾讯云消息队列', function() {
   it('SendMessageAsync', function(done) {
