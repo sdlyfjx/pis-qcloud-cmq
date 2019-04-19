@@ -1,19 +1,32 @@
 {
-  "name": "pis-qcloud-cmq",
-  "version": "1.0.1",
-  "description": "qcloud cmq sdk",
+  "name": "fjx-qcloud-cmq",
+  "version": "1.0.0",
+  "description": "qcloud cmq sdk modified from pis-qcloud-cmq",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "pis",
+    "fjx",
+    "qcloud",
     "cmq"
   ],
-  "author": "rayl",
+  "author": "fjx",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.1",
     "qcloudapi-sdk": "^0.1.6"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdlyfjx/pis-qcloud-cmq.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sdlyfjx/pis-qcloud-cmq/issues"
+  },
+  "homepage": "https://github.com/sdlyfjx/pis-qcloud-cmq#readme"
 }
