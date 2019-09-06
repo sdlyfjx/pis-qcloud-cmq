@@ -1,6 +1,6 @@
 {
   "name": "fjx-qcloud-cmq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "qcloud cmq sdk modified from pis-qcloud-cmq",
   "main": "index.js",
   "scripts": {
