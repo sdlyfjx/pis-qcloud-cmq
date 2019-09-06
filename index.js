@@ -425,8 +425,8 @@ class CMQ_Topic {
       topicName: topicName
     }
 
-    if (routingKey.length > 0)
-      qBody[routingKey] = routingKey
+    if (routingKey && routingKey.length > 0)
+      qBody['routingKey'] = routingKey
 
     for (let i in msgBodys) {
       qBody[`msgBody.${i}`] = msgBodys[i]
