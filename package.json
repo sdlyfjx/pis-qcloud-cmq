@@ -14,7 +14,7 @@
   "author": "fjx",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.5.1",
+    "bluebird": "^3.5.5",
     "qcloudapi-sdk": "^0.1.6"
   },
   "directories": {
